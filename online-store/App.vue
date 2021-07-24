@@ -1,5 +1,11 @@
 <script>
 	export default {
+		globalData:{
+			data:{
+				
+			},
+			baseUrl: "http://152.136.185.210:7878/api/m5" 
+		},
 		onLaunch: function() {
 			console.log('App Launch')
 		},

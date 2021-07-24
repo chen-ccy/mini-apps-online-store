@@ -11,7 +11,7 @@
             "path" : "pages/home/home",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "购物街",
+                "navigationBarTitleText": "首页",
                 "enablePullDownRefresh": false
             }
             
@@ -20,7 +20,7 @@
             "path" : "pages/cart/cart",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "购物车",
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -29,7 +29,7 @@
             "path" : "pages/detail/detail",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "详情页",
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -38,7 +38,7 @@
             "path" : "pages/category/category",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "分类",
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -47,7 +47,7 @@
             "path" : "pages/profile/profile",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "我的",
+                "navigationBarTitleText": "",
                 "enablePullDownRefresh": false
             }
             
@@ -56,37 +56,32 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"text": "uni-app",
-		"navigationBarBackgroundColor": "#ff5777",
-		"backgroundColor": "#F8F8F8",
-		"navigationBarTextStyle":"white"		
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
 	},
 	"tabBar":{
 		"list":[{
 			"text": "首页",
-			"pagePath":"pages/home/home",
-			"iconPath":"static/images/tabbar/home.png",
-			"selectedIconPath":"static/images/tabbar/home_active.png"
+			"pagePath":"pages/home/home"
+			//"iconPath":"./assets/img/tabbar/home_active.svg"
 		},
 		{
 			"text": "分类",
 			"pagePath":"pages/category/category",
-			"iconPath":"static/images/tabbar/category.png",
-			"selectedIconPath":"static/images/tabbar/category_active.png"
+			"iconPath":"~assets/img/tabbar/home.svg"
 		},
 		{
 			"text": "购物车",
-			"pagePath":"pages/cart/cart",			
-			"iconPath":"static/images/tabbar/cart.png",
-			"selectedIconPath":"static/images/tabbar/cart_active.png"
+			"pagePath":"pages/cart/cart",
+			"color":"red"
+			//"iconPath":"./assets/img/tabbar/home_active.svg"
 		},		
 		{
 			"text": "我的",
-			"pagePath":"pages/profile/profile",
-			"iconPath":"static/images/tabbar/profile.png",
-			"selectedIconPath":"static/images/tabbar/profile_active.png"
+			"pagePath":"pages/profile/profile"
+			//"iconPath":"./assets/img/tabbar/home_active.svg"
 		}
-		],
-		"selectedColor":"#DC143C"
+		]
 		
 	},
 	"condition" : { //模式配置，仅开发期间生效
