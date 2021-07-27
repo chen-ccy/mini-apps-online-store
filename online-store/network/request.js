@@ -1,8 +1,9 @@
-export function request(url,method,data){
+export function request(url,method,data,fn){
 		return uni.request({
 			url: getApp().globalData.baseUrl + url,
 			method: method || "get",
-			data: data || {}
+			data: data || {},
+			success: fn
 		})
 	}
 
