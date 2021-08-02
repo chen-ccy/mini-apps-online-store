@@ -3,9 +3,10 @@
 		
 			<image :src="goodsItem.show.img" mode=""></image>
 			    <view class="goods-info">
-			    <p>{{goodsItem.title}}</p>
-			    <text class="price">{{goodsItem.price}}</text>
-			    <text class="collect">{{goodsItem.cfav}}</text></view>
+						<p class="title">{{goodsItem.title}}</p>
+						<text class="price">{{goodsItem.price}}</text>
+						<text class="collect">{{goodsItem.cfav}}</text>
+					</view>
 
 	</view>
 </template>
@@ -29,12 +30,17 @@
 </script>
 
 <style>
-.goods-list-item{
-	width: 46%;
 
-}
 .goods-list-item>image{
 	width: 100%;
 	border-radius: 5px;
+}
+.goods-info{
+	overflow: hidden;
+}
+.title{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	 white-space: nowrap;
 }
 </style>

@@ -4,11 +4,11 @@ module.exports = {
     resolve:{
       alias:{
 				"@": "src",
-        'assets': '@/assets',
+        'assets': 'src/assets',
         'common': '@/common',
         'network': '@/network',
         'views': '@/views',
-				'static': '@/static',
+				'static': '../../static',
         'components': '@/components'
       }
     }

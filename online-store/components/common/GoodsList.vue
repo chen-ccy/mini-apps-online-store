@@ -1,6 +1,9 @@
 <template>
-	<view class="goods-list">
-			<goods-list-item   v-for="item in goodsList" :goodsItem="item" />	
+	<view >
+		<view class="goods-list">
+			<goods-list-item class="goods-list-item"   v-for="item in goodsList" :goodsItem="item" />	
+		</view>
+			
 	</view>
 </template>
 
@@ -33,6 +36,10 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+
+}
+.goods-list-item{
+	width: 46%;
 }
 
 </style>

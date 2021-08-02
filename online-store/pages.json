@@ -12,7 +12,7 @@
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "购物街",
-                "enablePullDownRefresh": false
+                "enablePullDownRefresh": true
             }
             
         }
