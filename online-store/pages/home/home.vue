@@ -7,15 +7,16 @@
 		@scrolltolower="loadMore"
 		 @scroll="scroll" 
 		 >
-			<swiper :banners="banners" />
+			<swiper @imgLoad="imgLoad" :banners="banners" />
 			<recommends :recommends="recommends" />
 			<image src="../../static/images/home/recommend_bg.jpg" />
-			<tab-control :title="title" @tabClick="tabClick"/>
+			<tab-control ref="tabControl1" id="tabControl" :title="title" @tabClick="tabClick"/>
 			<GoodsList :goodsList="goods[currentType].list"/>
 			
 		</scroll-view>
 		<!-- <button size="mini" @click="handle">按钮</button> -->
 		<top-control v-show="isTopShow" @click.native="backClick"></top-control>
+		<tab-control ref="tabControl2" v-show="tabFlex" class="tab-control2"  :title="title" @tabClick="tabClick"/>
 	</view>
 </template>
 
@@ -40,10 +41,13 @@
 					'pop':{ page:0,list:[],scrollY:-550 },
 					'new':{ page:0,list:[],scrollY:-540 },
 					'sell':{ page:0,list:[],scrollY:-550 },
+					
 
 				},
 				isTopShow:false,
 				currentType: 'pop',
+				tabFlex:false,
+				tabControlTop:0
 
 			}
 		},
@@ -85,17 +89,21 @@
 		},
 		methods:{
 			tabClick(index){
-				console.log(index)
 				switch(index){
-					case 0:{this.currentType = "pop";back}
-					case 1:{this.currentType = "new";back}
-					case 2:{this.currentType = "sell";back}
+					case 0:{this.currentType = "pop";break}
+					case 1:{this.currentType = "new";break}
+					case 2:{this.currentType = "sell";break}
 				}
+				this.$refs.tabControl1.currentIndex = index;
+				this.$refs.tabControl2.currentIndex = index;
 			},
 			scroll(e){
 				let flag = e.detail.scrollTop > 1000
 				if(flag != this.isTopShow)
 					this.isTopShow = flag
+				let isflex = e.detail.scrollTop > this.tabControlTop
+				if(isflex != this.tabFlex)
+					this.tabFlex = isflex
 			},
 			backClick(){
 
@@ -109,6 +117,10 @@
 			function(res){
 				_this.goods[type].list.push(...res.data.data.list)
 			})
+		},
+		imgLoad(){
+			let view = uni.createSelectorQuery().in(this).select("#tabControl");
+			view.boundingClientRect(data => this.tabControlTop = data.top).exec()
 		}
 	},
 	}
@@ -127,4 +139,12 @@
     left: 0;
     right: 0;
   }
+	.tab-control2{
+position: relative;
+    top: 0px;
+    left: 0;
+    right: 0;
+		z-index: 9;
+		
+	}
 </style>

@@ -5,7 +5,7 @@
 						indicator-dots
 						duration="500">
 			<swiper-item v-for="item in banners">
-				<img :src="item.image" alt="" mode="widthFix">
+				<img @load="imgLoad" :src="item.image" alt="" mode="widthFix">
 			</swiper-item>
 		</swiper>
 	</view>
@@ -26,6 +26,11 @@
 			return {
 				
 			};
+		},
+		methods:{
+			imgLoad(){
+				this.$emit('imgLoad')
+			}
 		}
 	}
 </script>
