@@ -1,11 +1,11 @@
 <template>
-	<view class="goods-list-item">
+	<view class="goods-list-item" @click="goodItemClick">
 		
-			<image :src="goodsItem.show.img" mode=""></image>
+			<image :src="goodItem.show.img" mode=""></image>
 			    <view class="goods-info">
-						<p class="title">{{goodsItem.title}}</p>
-						<text class="price">{{goodsItem.price}}</text>
-						<text class="collect">{{goodsItem.cfav}}</text>
+						<p class="title">{{goodItem.title}}</p>
+						<text class="price">{{goodItem.price}}</text>
+						<text class="collect">{{goodItem.cfav}}</text>
 					</view>
 
 	</view>
@@ -15,7 +15,7 @@
 	export default {
 		name:"",
 		props:{
-			goodsItem:{
+			goodItem:{
 				type:Object,
 				default(){
 					return {}
@@ -25,6 +25,13 @@
 		data() {
 			return {				
 			};
+		},
+		methods:{
+			goodItemClick(){
+				uni.redirectTo({
+					url:'../../pages/detail/detail?iid='+this.goodItem.iid
+				})
+			}
 		}
 	}
 </script>

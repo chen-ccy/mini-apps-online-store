@@ -7,7 +7,7 @@
 		@scrolltolower="loadMore"
 		 @scroll="scroll" 
 		 >
-			<swiper @imgLoad="imgLoad" :banners="banners" />
+			<HomeSwiper @imgLoad="imgLoad" :swiperImage="banners" />
 			<recommends :recommends="recommends" />
 			<image src="../../static/images/home/recommend_bg.jpg" />
 			<tab-control ref="tabControl1" id="tabControl" :title="title" @tabClick="tabClick"/>
@@ -22,7 +22,7 @@
 
 <script>
 	import tabControl from '../../components/homeChildCpns/tabControl.vue'
-	import swiper from '../../components/swiper.vue'
+	import HomeSwiper from '../../components/homeChildCpns/HomeSwiper.vue'
 	import GoodsList from '../../components/common/GoodsList.vue'
 	import topControl from '../../components/common/TopControl.vue'
 	
@@ -52,7 +52,7 @@
 			}
 		},
 		components:{
-			swiper,
+			HomeSwiper,
 			recommends,
 			tabControl,
 			GoodsList,

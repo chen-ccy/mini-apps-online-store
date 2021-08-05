@@ -5,7 +5,7 @@
 						indicator-dots
 						duration="500">
 			<swiper-item v-for="item in swiperImage">
-				<img @load="imgLoad" :src="item" alt="" mode="widthFix">
+				<img @load="imgLoad" :src="item.image" alt="" mode="widthFix">
 			</swiper-item>
 		</swiper>
 	</view>
@@ -24,7 +24,6 @@
 		},
 		data() {
 			return {
-				
 			};
 		},
 		methods:{
