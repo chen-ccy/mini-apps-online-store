@@ -38,16 +38,45 @@
 
 <style>
 
-.goods-list-item>image{
-	width: 100%;
-	border-radius: 5px;
-}
-.goods-info{
-	overflow: hidden;
-}
-.title{
-	overflow: hidden;
-	text-overflow: ellipsis;
-	 white-space: nowrap;
-}
+  .goods-list-item{
+    padding-bottom: 80rpx;
+
+    position: relative;
+
+  }
+  .goods-list-item image{
+    width: 100%;
+    border-radius: 10rpx;
+  }
+  .goods-info {
+    font-size: 24rpx;
+    position: absolute;
+    bottom: 10rpx;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    text-align: center;
+  }
+  .goods-info .price{
+    color: var(--color-high-text);
+    margin-right: 70rpx;
+  }
+  .goods-info .collect{
+    position: relative;
+  }
+  .goods-info .collect::before {
+    content: '';
+    position: absolute;
+    left: -30rpx;
+    top: -2rpx;
+    width: 28rpx;
+    height: 28rpx;
+    background: url("../../static/images/common/favor.png") 0 0/28rpx 28rpx;
+  }
+  .goods-info p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: 6rpx;
+  }
 </style>

@@ -1,7 +1,6 @@
 <template>
 	<view class="home">
 		<scroll-view
-
 		class="content"
 		scroll-y
 		@scrolltolower="loadMore"
