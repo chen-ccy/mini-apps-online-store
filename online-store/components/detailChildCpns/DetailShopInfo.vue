@@ -1,33 +1,32 @@
 <template>
-    <div class="shop-info">
-
-      <div class="shop-top">
-        <img :src="shop.logo">
+    <view class="shop-info">
+      <view class="shop-top">
+        <image :src="shop.logo">
         <span class="title">{{shop.name}}</span>
-      </div>
+      </view>
 
-      <div class="shop-middle">
+      <view class="shop-middle">
 
-        <div class="shop-middle-item shop-middle-left">
+        <view class="shop-middle-item shop-middle-left">
 
-          <div class="info-sells">
+          <view class="info-sells">
 
-            <div class="sells-count">
+            <view class="sells-count">
               {{shop.sells | sellCountFilter}}
-            </div>
+            </view>
 
-            <div class="sells-text">总销量</div>
+            <view class="sells-text">总销量</view>
 
-          </div>
-          <div class="info-goods">
-          <div class="goods-count">
+          </view>
+          <view class="info-goods">
+          <view class="goods-count">
             {{shop.goodsCount}}
-          </div>
-          <div class="goods-text">全部宝贝</div>
-          </div>
-        </div>
+          </view>
+          <view class="goods-text">全部宝贝</view>
+          </view>
+        </view>
 
-      <div class="shop-middle-item shop-middle-right">
+      <view class="shop-middle-item shop-middle-right">
       <table>
         <tr v-for="(item,index) in shop.score" :key="index">
           <td>{{item.name}}</td>
@@ -35,17 +34,12 @@
           <td class="better" :class="{ 'better-more': item.isBetter}"><span>{{item.isBetter?'高':'低'}}</span></td>
         </tr>
       </table>
-    </div>
-    </div>
-      <div class="shop-bottom">
-        <div class="enter-shop">进店逛逛</div>
-      </div>
-    </div>
-
-
-
-
-
+    </view>
+    </view>
+      <view class="shop-bottom">
+        <view class="enter-shop">进店逛逛</view>
+      </view>
+    </view>
 </template>
 
 <script>
@@ -76,7 +70,7 @@
     height: 90px;
     line-height: 90px;
   }
-  .shop-top img{
+  .shop-top image{
     width: 40px;
     height: 40px;
     border-radius: 40px;
@@ -102,7 +96,7 @@
     border-right: 1px solid rgba(0,0,0,.1);
 
   }
-  .shop-middle-left>div{
+  .shop-middle-left>view{
     flex: 1;
     height: 60px;
     line-height: 30px;

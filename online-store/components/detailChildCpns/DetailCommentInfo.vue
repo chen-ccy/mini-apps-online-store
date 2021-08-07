@@ -1,34 +1,34 @@
 <template>
-  <div>
-    <div v-if="Object.keys(commentInfo).length !== 0" class="comment-info">
-      <div class="info-header">
-        <div class="header-title">用户评价</div>
-        <div class="header-more">
+  <view>
+    <view v-if="Object.keys(commentInfo).length !== 0" class="comment-info">
+      <view class="info-header">
+        <view class="header-title">用户评价</view>
+        <view class="header-more">
           更多
           <i class="arrow-right"></i>
-        </div>
-      </div>
-      <div class="info-user">
-        <img :src="commentInfo.user.avatar" alt="">
+        </view>
+      </view>
+      <view class="info-user">
+        <image :src="commentInfo.user.avatar" alt="" mode="widthFix">
         <span>{{commentInfo.user.uname}}</span>
-      </div>
-      <div class="info-detail">
+      </view>
+      <view class="info-detail">
         <p>{{commentInfo.content}}</p>
-        <div class="info-other">
+        <view class="info-other">
           <span class="date">{{commentInfo.created | showDate }}</span>
           <span>{{commentInfo.style}}</span>
-        </div>
-        <div class="info-imgs">
-          <img :src="item" v-for="(item, index) in commentInfo.images">
-        </div>
-      </div>
-    </div>
-  </div>
+        </view>
+        <view class="info-images">
+          <image :src="item" v-for="(item, index) in commentInfo.images" mode="widthFix">
+        </view>
+      </view>
+    </view>
+  </view>
 </template>
 
 <script>
 
-  import {formatDate} from "@/common/utils";
+  import {formatDate} from "../../utils/utils.js";
 
   export default {
     name: "DetailCommentInfo",
@@ -72,7 +72,7 @@
   .info-user{
     padding: 10px;
   }
-  .info-user img{
+  .info-user image{
     width: 30px;
     vertical-align: middle;
     margin-right: 15px;
@@ -89,7 +89,7 @@
   .date{
     margin-right: 15px;
   }
-  .info-imgs img{
+  .info-images image{
     width: 50px;
   }
 

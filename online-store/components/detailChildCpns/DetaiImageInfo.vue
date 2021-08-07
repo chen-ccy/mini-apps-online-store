@@ -1,21 +1,21 @@
 <template>
-  <div class="detail-info" v-if="Object.keys(detailInfo).length !== 0">
-   <div class="info-desc">
-     <div class="start"></div>
-     <div class="desc">
+  <view class="detail-info" v-if="Object.keys(detailInfo).length !== 0">
+   <view class="info-desc">
+     <view class="start"></view>
+     <view class="desc">
        {{detailInfo.desc}}
-     </div>
-     <div class="end"></div>
-   </div>
+     </view>
+     <view class="end"></view>
+   </view>
 
-    <div class="info-key"> {{detailInfo.detailImage[0].key}}</div>
+    <view class="info-key"> {{detailInfo.detailImage[0].key}}</view>
 
-    <div v-for="item in detailInfo.detailImage[0].list" class="image-info">
-      <img :src="item" alt="" @load="imageLoad">
-    </div>
+    <view v-for="item in detailInfo.detailImage[0].list" class="image-info">
+      <image :src="item" alt="" @load="imageLoad" mode="widthFix">
+    </view>
 
 
-  </div>
+  </view>
 
 </template>
 
@@ -82,7 +82,7 @@
     color: #333;
     font-size: 15px;
   }
-  .image-info img{
+  .image-info image{
     width: 100%;
 
   }

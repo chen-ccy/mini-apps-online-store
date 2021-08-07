@@ -1,5 +1,5 @@
 <template>
-  <div class="param-info" v-if="ParamInfo">
+  <view class="param-info" v-if="ParamInfo">
     <table v-for="(table,index) in ParamInfo.sizes"
         class="info-size" :key="index">
       <tr v-for="(tr,index) in table" :key="index">
@@ -14,7 +14,7 @@
       </tr>
     </table>
 
-    </div>
+    </view>
 
 
 </template>
