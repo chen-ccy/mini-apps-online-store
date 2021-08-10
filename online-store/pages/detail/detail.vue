@@ -10,9 +10,9 @@
 			<DetailBaseInfo :goods="goods"></DetailBaseInfo>
 			<DetailShopInfo :shop="shopInfo"/>
 			<DetailImageInfo :detail-info="detailInfo" @detailImage="detailImageLoad" />
-			<DetailParamInfo :param-info="GoodsParam" ref="params"/>
+			<DetailParamInfo :paramInfo="GoodsParam" ref="params"/>
 			<DetailCommentInfo :comment-info="commentInfo" ref="comment"/>
-			<GoodsList :goods="recommend" @itemImageLoad="imageLoad" ref="recommend"/>
+			<DetailGoodsList :recommend="recommend" @itemImageLoad="imageLoad" ref="recommend"/>
 		</scroll-view>
 
 	</view>
@@ -26,6 +26,7 @@
 	import DetailParamInfo from "../../components/detailChildCpns/DetailParamInfo";
 	import DetailCommentInfo from "../../components/detailChildCpns/DetailCommentInfo";
 	import DetailBottomNav from "../../components/detailChildCpns/DetailBottomNav";
+	import DetailGoodsList from "../../components/detailChildCpns/DetailGoodsList.vue"
 	
 	import {getDetail,getRecommend,Goods,ShopInfo,GoodsParam} from '../../network/detail.js'
 	export default {
@@ -38,7 +39,7 @@
 				GoodsParam:{},
 				detailInfo:{},
 				commentInfo:{},
-				recommend:{},
+				recommend:[],
 				getThemeTopY:null,
 				themeTopY:[],
 				currentIndex:null,
@@ -57,13 +58,13 @@
 					_this.goods = new Goods(data.itemInfo,data.columns,data.shopInfo.services);
 					_this.shopInfo = new ShopInfo(data.shopInfo)
 					_this.GoodsParam = new GoodsParam(data.itemParams.info,data.itemParams.rule);
-					console.log(_this.shopInfo )
-					console.log(_this.GoodsParam)
+
 					_this.detailInfo = data.detailInfo;
 					_this.commentInfo = data.rate.list[0]
 			})
 			getRecommend(function(res){
-				_this.recommend = res.data.list
+				_this.recommend = res.data.data.list
+				console.log(_this.recommend)
 			})
 		},
 		components:{
@@ -73,7 +74,9 @@
       DetailImageInfo,
       DetailParamInfo,
       DetailCommentInfo,
-      DetailBottomNav,
+			DetailGoodsList,
+      DetailBottomNav
+			
 		},
 		methods: {	
 			

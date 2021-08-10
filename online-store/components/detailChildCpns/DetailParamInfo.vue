@@ -1,16 +1,16 @@
 <template>
-  <view class="param-info" v-if="ParamInfo">
-    <table v-for="(table,index) in ParamInfo.sizes"
+  <view class="param-info" v-if=" Object.keys(paramInfo).length !== 0">
+    <uni-table v-for="(table,index) in paramInfo.sizes"
         class="info-size" :key="index">
-      <tr v-for="(tr,index) in table" :key="index">
-        <td v-for="(td,index) in tr">{{td}}</td>
-      </tr>
-    </table>
+      <uni-tr v-for="(tr) in table" class="info-size-tr" :key="index">
+        <uni-td v-for="(td) in tr" class="info-size-td">{{td}}</uni-td>
+      </uni-tr>
+    </uni-table>
 
     <table class="info-param">
-      <tr v-for="(info,index) in ParamInfo.infos">
-        <td class="info-param-key">{{info.key}}</td>
-        <td class="param-value">{{info.value}}</td>
+      <tr v-for="(info,index) in paramInfo.infos" class="info-param-tr">
+        <td class="info-param-key info-param-td">{{info.key}}</td>
+        <td class="param-value info-param-td">{{info.value}}</td>
       </tr>
     </table>
 
@@ -23,7 +23,7 @@
   export default {
     name: "DetailParamInfo",
     props:{
-      ParamInfo:{
+      paramInfo:{
         type:Object,
         default(){
           return {}
@@ -45,21 +45,21 @@
   border-collapse: collapse;
   width: 100%;
 }
-.info-size tr{
+.info-size .info-size-tr{
   height: 50px;
 
 }
-.info-size tr td{
+.info-size .info-size-td {
   order-bottom: 1px solid rgba(100,100,100,.1);
 }
   .info-param{
 
     width: 100%;
   }
-  .info-param tr{
+  .info-param .info-param-tr{
     height: 40px;
   }
-  .info-param tr td{
+  .info-param .info-param-td{
     border-bottom: 1px solid rgba(100,100,100,.1);
   }
   .param-value{
