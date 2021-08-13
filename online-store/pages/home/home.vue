@@ -3,10 +3,11 @@
 		<scroll-view
 		class="content"
 		scroll-y
+		:scroll-top="scrollTop"
 		@scrolltolower="loadMore"
 		 @scroll="scroll" 
 		 >
-			<HomeSwiper @imgLoad="imgLoad" :swiperImage="banners" />
+			<HomeSwiper @imgLoad="imgLoad" :swiperImage="banners" id="homeTop"/>
 			<recommends :recommends="recommends" />
 			<image src="../../static/images/home/recommend_bg.jpg" />
 			<tab-control ref="tabControl1" id="tabControl" :title="title" @tabClick="tabClick"/>
@@ -46,8 +47,10 @@
 				isTopShow:false,
 				currentType: 'pop',
 				tabFlex:false,
-				tabControlTop:0
-
+				tabControlTop:0,
+				toView:"",
+				oldScrollTop:0,
+				scrollTop:0
 			}
 		},
 		components:{
@@ -73,13 +76,7 @@
 			})
 			getHomeList({type:"sell",page:++_this.goods.sell.page},function(res){
 				_this.goods.sell.list = res.data.data.list
-			})
-			
-			// .then(res => {		
-			// 		this.banners = res[1].data.data.banner.list
-			// 		this.recommends = res[1].data.data.recommend.list
-			// 	})
-				
+			})						
 		},
 		onShow(){
 		},
@@ -98,15 +95,21 @@
 			},
 			scroll(e){
 				let flag = e.detail.scrollTop > 1000
-				if(flag != this.isTopShow)
+				this.oldScrollTop=e.detail.scrollTop
+				if(flag != this.isTopShow){
+					this.toView=''
 					this.isTopShow = flag
+				}
+					
 				let isflex = e.detail.scrollTop > this.tabControlTop
 				if(isflex != this.tabFlex)
 					this.tabFlex = isflex
 			},
 			backClick(){
-
-
+				this.scrollTop=this.oldScrollTop
+				this.$nextTick(function(){
+					this.scrollTop=0
+				})	
 		},
 		loadMore(){
 			const _this = this

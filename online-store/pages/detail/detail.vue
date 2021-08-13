@@ -1,24 +1,26 @@
 <template>
 	<view>
+		
 		<scroll-view 
 		scroll-y="true" 
 		class="content"
 		@scrolltolower="loadMore"
 		 @scroll="scroll" >
 		 
-			<detail-swiper :swiperImage="swiperImage"></detail-swiper>
+			<detail-swiper :swiperImage="swiperImage" id="good"></detail-swiper>
 			<DetailBaseInfo :goods="goods"></DetailBaseInfo>
 			<DetailShopInfo :shop="shopInfo"/>
 			<DetailImageInfo :detail-info="detailInfo" @detailImage="detailImageLoad" />
-			<DetailParamInfo :paramInfo="GoodsParam" ref="params"/>
-			<DetailCommentInfo :comment-info="commentInfo" ref="comment"/>
-			<DetailGoodsList :recommend="recommend" @itemImageLoad="imageLoad" ref="recommend"/>
+			<DetailParamInfo :paramInfo="GoodsParam" id="paramInfo" ref="params"/>
+			<DetailCommentInfo :comment-info="commentInfo" id="commentInfo" ref="comment"/>
+			<DetailGoodsList :recommend="recommend" @itemImageLoad="imageLoad" id="recommend" ref="recommend"/>
 		</scroll-view>
 
 	</view>
 </template>
 
 <script>
+	
 	import DetailSwiper from '../../components/detailChildCpns/DetailSwiper.vue'
 	import DetailBaseInfo from '../../components/detailChildCpns/DetailBaseInfo.vue'
 	import DetailShopInfo from "../../components/detailChildCpns/DetailShopInfo";
@@ -64,7 +66,6 @@
 			})
 			getRecommend(function(res){
 				_this.recommend = res.data.data.list
-				console.log(_this.recommend)
 			})
 		},
 		components:{
