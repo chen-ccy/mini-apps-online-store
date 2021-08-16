@@ -1,5 +1,14 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "详情页",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "detail-shop-info": "/components/detailChildCpns/DetailShopInfo",
+    "detail-base-info": "/components/detailChildCpns/DetailBaseInfo",
+    "detail-swiper": "/components/detailChildCpns/DetailSwiper",
+    "detail-image-info": "/components/detailChildCpns/DetaiImageInfo",
+    "detail-param-info": "/components/detailChildCpns/DetailParamInfo",
+    "detail-comment-info": "/components/detailChildCpns/DetailCommentInfo",
+    "detail-goods-list": "/components/detailChildCpns/DetailGoodsList",
+    "detail-bottom-nav": "/components/detailChildCpns/DetailBottomNav"
+  }
 }

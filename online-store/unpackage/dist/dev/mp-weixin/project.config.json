@@ -8,7 +8,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "",
-  "appid": "touristappid",
+  "appid": "wx8a35e8d5e5132753",
   "projectname": "online-store",
   "condition": {
     "search": {
@@ -28,9 +28,9 @@
       "list": [
         {
           "name": "",
-          "path": "",
           "query": "",
-          "id": 0
+          "id": 0,
+          "pathName": "pages/home/home"
         }
       ]
     }

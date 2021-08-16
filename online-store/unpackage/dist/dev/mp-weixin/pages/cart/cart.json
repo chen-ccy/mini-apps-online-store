@@ -1,5 +1,9 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "购物车",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "cart-list": "/components/cartChildCpns/CartList",
+    "cart-bottom-bar": "/components/cartChildCpns/CartBottomBar",
+    "toast": "/components/common/Toast"
+  }
 }

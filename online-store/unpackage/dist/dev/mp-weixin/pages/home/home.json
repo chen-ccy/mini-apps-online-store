@@ -1,5 +1,11 @@
 {
-  "navigationBarTitleText": "首页",
-  "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "navigationBarTitleText": "购物街",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "home-swiper": "/components/homeChildCpns/HomeSwiper",
+    "recommends": "/components/homeChildCpns/recommends",
+    "tab-control": "/components/homeChildCpns/tabControl",
+    "goods-list": "/components/common/GoodsList",
+    "top-control": "/components/common/TopControl"
+  }
 }
