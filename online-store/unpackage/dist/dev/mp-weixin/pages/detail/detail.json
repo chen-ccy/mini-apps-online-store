@@ -9,6 +9,7 @@
     "detail-param-info": "/components/detailChildCpns/DetailParamInfo",
     "detail-comment-info": "/components/detailChildCpns/DetailCommentInfo",
     "detail-goods-list": "/components/detailChildCpns/DetailGoodsList",
-    "detail-bottom-nav": "/components/detailChildCpns/DetailBottomNav"
+    "detail-bottom-nav": "/components/detailChildCpns/DetailBottomNav",
+    "toast": "/components/common/Toast"
   }
 }
