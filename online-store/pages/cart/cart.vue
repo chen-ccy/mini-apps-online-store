@@ -1,11 +1,8 @@
 <template>
   <div class="cart">
- 
-     
-
-    <CartList :cartItem="cartList"/>
+    <CartList :cartItem="$store.state.cartList"/>
+		<button type="default" @click="cart">点击</button>
     <CartBottomBar class="bottom-bar" />
-
     <Toast class="cart-toast" :message="message" v-show="toastShow"/>
   </div>
 
@@ -39,7 +36,9 @@
 
     },
     methods:{
-
+cart(){
+	console.log(this.$store.state.cartList)
+}
     }
 
   }

@@ -31,7 +31,7 @@
   height: 44px;
   background-color: #eee;
   position: fixed;
-  bottom: 46px;
+  bottom: 0;
   left: 0;
   box-shadow: 0 -2px 3px rgba(0, 0, 0, .2);
   font-size: 14px;

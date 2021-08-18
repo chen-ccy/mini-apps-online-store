@@ -1,7 +1,7 @@
 <template>
   <div class="cartList">
-    <scroll-view class="content" ref="scroll">
-      <div class="cartList-item" >
+    <scroll-view class="content" ref="scroll" >
+      <div class="cartList-item" v-for="item in cartList">
         <CartListItem :cart-list-item="item"/>
       </div>
     </scroll-view>
@@ -28,6 +28,14 @@
     computed:{
 
     },
+		props:{
+			cartItem:{
+				type:Array,
+				default(){
+					return []
+				}
+			}
+		}
   }
 </script>
 

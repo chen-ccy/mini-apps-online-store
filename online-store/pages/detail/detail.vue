@@ -1,5 +1,5 @@
 <template>
-	<view>
+	<view class="detail">
 		
 		<scroll-view 
 		scroll-y="true" 
@@ -14,8 +14,10 @@
 			<DetailParamInfo :paramInfo="GoodsParam" id="paramInfo" ref="params"/>
 			<DetailCommentInfo :comment-info="commentInfo" id="commentInfo" ref="comment"/>
 			<DetailGoodsList :recommend="recommend" @itemImageLoad="imageLoad" id="recommend" ref="recommend"/>
+			
 		</scroll-view>
-
+<detail-bottom-nav @addToCart="addToCart"></detail-bottom-nav>
+<Toast class="detail-toast" v-show="toastShow" :message="message"></Toast>
 	</view>
 </template>
 
@@ -29,6 +31,8 @@
 	import DetailCommentInfo from "../../components/detailChildCpns/DetailCommentInfo";
 	import DetailBottomNav from "../../components/detailChildCpns/DetailBottomNav";
 	import DetailGoodsList from "../../components/detailChildCpns/DetailGoodsList.vue"
+	
+	import Toast from '../../components/common/Toast.vue'
 	
 	import {getDetail,getRecommend,Goods,ShopInfo,GoodsParam} from '../../network/detail.js'
 	export default {
@@ -76,15 +80,49 @@
       DetailParamInfo,
       DetailCommentInfo,
 			DetailGoodsList,
-      DetailBottomNav
+      DetailBottomNav,
+			Toast
 			
 		},
 		methods: {	
-			
+				addToCart() {
+					const obj = {}
+					// 2.对象信息
+					obj.iid = this.iid;
+					obj.imgURL = this.swiperImage[0]
+					obj.title = this.goods.title
+					obj.desc = this.goods.desc;
+					obj.newPrice = this.goods.realPrice;	
+					console.log(obj)
+					this.$store.dispatch('addCart',obj).then(res =>{
+						this.message = res
+					})
+					this.toastShow = true
+					setTimeout(() =>{
+						this.toastShow = false
+					},1500)
+	
+				}
 		}
 	}
 </script>
 
 <style>
 
+.detail{
+	height: 100vh;
+	position: relative;
+}
+.content{
+	height:calc(100% - 58px)
+}
+  .detail-toast{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+  }
 </style>
