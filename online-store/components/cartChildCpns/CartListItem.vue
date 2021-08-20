@@ -1,7 +1,7 @@
 <template>
   <div class="cartList-item" >
     <div class="item-button">
-      <CartButton class="cartButton" :is-click="cartListItem.isClick" @click.native="checkClick"/>
+      <CartButton class="cartButton" :is-click="isClick" @click.native="checkClick"/>
     </div>
     <div class="item-img">
       <div class="item-image">
@@ -43,11 +43,19 @@
         }
       }
       },
+			data(){
+				return {
+					isClick:false
+				}
+				
+			},
       methods:{
         checkClick(){
           this.cartListItem.isClick = !this.cartListItem.isClick
+					this.isClick=this.cartListItem.isClick
 
         }
+
       }
 
 

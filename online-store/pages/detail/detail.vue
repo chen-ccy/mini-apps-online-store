@@ -93,7 +93,6 @@
 					obj.title = this.goods.title
 					obj.desc = this.goods.desc;
 					obj.newPrice = this.goods.realPrice;	
-					console.log(obj)
 					this.$store.dispatch('addCart',obj).then(res =>{
 						this.message = res
 					})

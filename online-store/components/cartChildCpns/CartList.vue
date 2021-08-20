@@ -1,9 +1,9 @@
 <template>
   <div class="cartList">
     <scroll-view class="content" ref="scroll" >
-      <div class="cartList-item" v-for="item in cartList">
-        <CartListItem :cart-list-item="item"/>
-      </div>
+      <block  v-for="item in cartList">
+        <CartListItem class="cartList-item" :cart-list-item="item"/>
+      </block>
     </scroll-view>
   </div>
 
@@ -29,7 +29,7 @@
 
     },
 		props:{
-			cartItem:{
+			cartList:{
 				type:Array,
 				default(){
 					return []

@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <div class="item-button"  :class="{click:isClick}">
+  <view>
+    <view class="item-button"  :class="{click:isClick}">
       
-    </div>
-  </div>
+    </view>
+  </view>
 </template>
 
 <script>
@@ -20,8 +20,8 @@
 
 <style scoped>
   .item-button{
-    width: 20px;
-    height: 20px;
+    width: 30rpx;
+    height: 30rpx;
     border-radius:50%;
     border: 2px solid;
     line-height: 20px;

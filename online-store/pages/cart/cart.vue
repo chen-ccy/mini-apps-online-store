@@ -1,6 +1,6 @@
 <template>
   <div class="cart">
-    <CartList :cartItem="$store.state.cartList"/>
+    <CartList :cartList="cartList"/>
 		<button type="default" @click="cart">点击</button>
     <CartBottomBar class="bottom-bar" />
     <Toast class="cart-toast" :message="message" v-show="toastShow"/>
@@ -13,7 +13,10 @@
   import CartList from "../../components/cartChildCpns/CartList.vue";
   import CartBottomBar from "../../components/cartChildCpns/CartBottomBar.vue";
 
+	import {mapGetters} from 'vuex'
+
   import Toast from "../../components/common/Toast.vue";
+	
 
   export default {
     name: "Cart",
@@ -30,14 +33,18 @@
       }
     },
     computed:{
-
+			
     },
     activated(){
 
     },
+		onLoad(){
+			this.cartList = this.$store.state.cartList
+		},
     methods:{
 cart(){
 	console.log(this.$store.state.cartList)
+	this.cartList = this.$store.state.cartList
 }
     }
 
