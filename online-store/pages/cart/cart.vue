@@ -1,7 +1,6 @@
 <template>
   <div class="cart">
     <CartList :cartList="cartList"/>
-		<button type="default" @click="cart">点击</button>
     <CartBottomBar class="bottom-bar" />
     <Toast class="cart-toast" :message="message" v-show="toastShow"/>
   </div>
@@ -42,10 +41,6 @@
 			this.cartList = this.$store.state.cartList
 		},
     methods:{
-cart(){
-	console.log(this.$store.state.cartList)
-	this.cartList = this.$store.state.cartList
-}
     }
 
   }

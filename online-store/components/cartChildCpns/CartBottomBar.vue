@@ -2,8 +2,8 @@
   <div class="cart-bottomBar">
     <CartButton class="select-all"  />
     <span>全选</span>
-    <span class="total-price">合计: ¥100</span>
-    <span class="buy-product">去计算(5)</span>
+    <span class="total-price">合计: ¥{{totlePrice}}</span>
+    <span class="buy-product">去计算({{getCount}})</span>
   </div>
 </template>
 
@@ -19,9 +19,30 @@
     data() {
       return {
         //isClick: false
-      }
 
-    }
+				price:0
+      }
+    },
+		computed:{
+			getCount(){
+				let count=0
+				this.$store.state.cartList.forEach((item)=> {
+					console.log(item.isClick)
+					 if (item.isClick){
+						 count++
+					 }				 
+				})
+				return count
+			},
+			totlePrice(){
+				let price=0
+				this.$store.state.cartList.forEach((item) => {
+					if (item.isClick)
+					   price += item.newPrice * item.count
+				})
+				return price
+			}		
+		}
 		}
 </script>
 

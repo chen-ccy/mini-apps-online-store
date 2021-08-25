@@ -5,7 +5,10 @@ const mutations = {
   },
   addCount(state,playload){
     playload.count++
-  }
+  },
+	isClick(state,playload){
+		playload.isClick = !playload.isClick;
+	}
 }
 
 export default mutations

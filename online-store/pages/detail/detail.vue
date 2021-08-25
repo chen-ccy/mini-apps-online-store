@@ -10,10 +10,10 @@
 			<detail-swiper :swiperImage="swiperImage" id="good"></detail-swiper>
 			<DetailBaseInfo :goods="goods"></DetailBaseInfo>
 			<DetailShopInfo :shop="shopInfo"/>
-			<DetailImageInfo :detail-info="detailInfo" @detailImage="detailImageLoad" />
+			<DetailImageInfo :detail-info="detailInfo"  />
 			<DetailParamInfo :paramInfo="GoodsParam" id="paramInfo" ref="params"/>
 			<DetailCommentInfo :comment-info="commentInfo" id="commentInfo" ref="comment"/>
-			<DetailGoodsList :recommend="recommend" @itemImageLoad="imageLoad" id="recommend" ref="recommend"/>
+			<DetailGoodsList :recommend="recommend" id="recommend" ref="recommend"/>
 			
 		</scroll-view>
 <detail-bottom-nav @addToCart="addToCart"></detail-bottom-nav>

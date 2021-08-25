@@ -51,9 +51,8 @@
 			},
       methods:{
         checkClick(){
-          this.cartListItem.isClick = !this.cartListItem.isClick
+					this.$store.commit('isClick',this.cartListItem)
 					this.isClick=this.cartListItem.isClick
-
         }
 
       }

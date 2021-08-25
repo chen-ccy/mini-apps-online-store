@@ -1,7 +1,7 @@
 <template>
   <view>
-    <view class="item-button"  :class="{click:isClick}">
-      
+    <view class="item-button">
+      <view class="display" :class="{click:isClick}"></view>
     </view>
   </view>
 </template>
@@ -24,10 +24,16 @@
     height: 30rpx;
     border-radius:50%;
     border: 2px solid;
-    line-height: 20px;
+		line-height: 30rpx;
+		text-align: center;
   }
   .click{
     background-color: red;
     border-color:red ;
   }
+	.display{
+		width: 27rpx;
+		height: 27rpx;
+		border-radius:50%;
+	}
 </style>
