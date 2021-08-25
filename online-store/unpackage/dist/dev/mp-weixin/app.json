@@ -42,5 +42,6 @@
     ],
     "selectedColor": "#DC143C"
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }
