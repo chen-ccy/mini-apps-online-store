@@ -54,7 +54,7 @@
 			}
 		},
 		onLoad(e){
-
+			
 			this.iid = e.iid
 			const _this = this
 			getDetail(_this.iid,function(res){
@@ -92,10 +92,11 @@
 					obj.imgURL = this.swiperImage[0]
 					obj.title = this.goods.title
 					obj.desc = this.goods.desc;
-					obj.newPrice = this.goods.realPrice;	
-					this.$store.dispatch('addCart',obj).then(res =>{
+					obj.newPrice = this.goods.realPrice;
+					getApp().addCart(obj).then(res =>{
 						this.message = res
 					})
+					this.message = "sddsjdi"
 					this.toastShow = true
 					setTimeout(() =>{
 						this.toastShow = false

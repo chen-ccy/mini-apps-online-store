@@ -1,6 +1,6 @@
 <template>
-  <div class="cart-bottomBar">
-    <CartButton class="select-all"  />
+  <div class="cart-bottomBar" >
+    <CartButton class="select-all" :is-click="isClick" @click.native="checkAll" />
     <span>全选</span>
     <span class="total-price">合计: ¥{{totlePrice}}</span>
     <span class="buy-product">去计算({{getCount}})</span>
@@ -18,17 +18,21 @@
     },
     data() {
       return {
-        //isClick: false
-
-				price:0
+				price:0,
+				cartList:[]
       }
     },
+		onLoad(){
+			this.cartList=getApp().globalData.cartList
+		},
+		onShow() {
+			
+		},
 		computed:{
 			getCount(){
 				let count=0
-				this.$store.state.cartList.forEach((item)=> {
-					console.log(item.isClick)
-					 if (item.isClick){
+				getApp().globalData.cartList.forEach((item)=> {
+					 if (item.checked){
 						 count++
 					 }				 
 				})
@@ -36,12 +40,29 @@
 			},
 			totlePrice(){
 				let price=0
-				this.$store.state.cartList.forEach((item) => {
-					if (item.isClick)
+				getApp().globalData.cartList.forEach((item) => {
+					if (item.checked)
 					   price += item.newPrice * item.count
 				})
 				return price
-			}		
+			},
+			isClick(){
+					let cartList=getApp().globalData.cartList
+					if(cartList.length === 0) return false
+					return !cartList.find( item => !item.checked)
+			}
+
+		},
+		methods:{
+				checkAll() {
+					 let cartList=getApp().globalData.cartList
+								if(this.isClick){
+									cartList.forEach( item => item.checked = false)
+								}else {
+									cartList.forEach( item => item.checked = true)
+								}
+							}
+
 		}
 		}
 </script>
@@ -64,7 +85,7 @@
   .select-all{
     position:absolute ;
     left: 10px;
-    top: 10px;
+    top: 12px;
   }
   .total-price{
     margin-left: 50px;

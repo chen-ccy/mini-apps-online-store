@@ -1,12 +1,11 @@
 <template>
-  <div class="cart">
+  <scroll-view scroll-y="true" class="cart">
     <CartList :cartList="cartList"/>
     <CartBottomBar class="bottom-bar" />
     <Toast class="cart-toast" :message="message" v-show="toastShow"/>
-  </div>
 
+</scroll-view>
 </template>
-
 <script>
 
   import CartList from "../../components/cartChildCpns/CartList.vue";
@@ -28,7 +27,7 @@
       return {
         toastShow:false,
         message:'',
-				cartList:[]
+				cartList:[],
       }
     },
     computed:{
@@ -38,7 +37,13 @@
 
     },
 		onLoad(){
-			this.cartList = this.$store.state.cartList
+			this.$set(this.$data,'cartList',getApp().globalData.cartList)		
+			getApp().addCartCallback = () => {
+						this.$set(this.$data,'cartList',getApp().globalData.cartList)
+					}		
+			getApp().changeGoodsState = (index, goods) => {
+				this.cartList[index].checked=goods.checked
+			}
 		},
     methods:{
     }
@@ -48,7 +53,7 @@
 
 <style scoped>
   .cart{
-    height: 100vh;
+    height:calc(100vh - 44px);
   }
 .cart-navbar{
   color: white;

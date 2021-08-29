@@ -39,20 +39,28 @@
       cartListItem:{
         type:Object,
         default(){
-          return {}
+          return {
+					}
         }
-      }
+      },
+			index:Number
       },
 			data(){
 				return {
-					isClick:false
 				}
 				
 			},
+			computed:{
+				isClick(){
+					 return this.cartListItem.checked
+				}
+			},
       methods:{
         checkClick(){
-					this.$store.commit('isClick',this.cartListItem)
-					this.isClick=this.cartListItem.isClick
+						const goods = getApp().globalData.cartList.find(item => item.iid == this.cartListItem.iid)
+						goods.checked = !goods.checked
+						getApp().changeGoodsState(this.index, goods)
+					
         }
 
       }

@@ -1,7 +1,6 @@
 <template>
-  <view>
-    <view class="item-button">
-      <view class="display" :class="{click:isClick}"></view>
+  <view class="item-button">
+    <view class="display" :class="{click:isClick}">
     </view>
   </view>
 </template>
@@ -20,20 +19,17 @@
 
 <style scoped>
   .item-button{
-    width: 30rpx;
-    height: 30rpx;
     border-radius:50%;
     border: 2px solid;
-		line-height: 30rpx;
-		text-align: center;
+		padding: 2rpx;
   }
   .click{
-    background-color: red;
-    border-color:red ;
+    background-color: grey;
+    border-color:grey ;
   }
 	.display{
-		width: 27rpx;
-		height: 27rpx;
+		width: 30rpx;
+		height: 30rpx;
 		border-radius:50%;
 	}
 </style>
