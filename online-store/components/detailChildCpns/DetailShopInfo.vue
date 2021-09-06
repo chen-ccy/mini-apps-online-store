@@ -27,13 +27,12 @@
         </view>
 
       <view class="shop-middle-item shop-middle-right">
-      <table>
-        <tr v-for="(item,index) in shop.score" :key="index">
-          <td>{{item.name}}</td>
-          <td class="score" :class="{ 'score-better': item.isBetter}">{{item.score}}</td>
-          <td class="better" :class="{ 'better-more': item.isBetter}"><span>{{item.isBetter?'高':'低'}}</span></td>
-        </tr>
-      </table>
+
+        <view v-for="(item,index) in shop.score" :key="index" class="grade-row">
+          <view  class='item name'>{{item.name}}</view>
+          <view class="score" :class="{ 'score-better': item.isBetter}">{{item.score}}</view>
+          <view class="better" :class="{ 'better-more': item.isBetter}"><span>{{item.isBetter?'高':'低'}}</span></view>
+        </view>
     </view>
     </view>
       <view class="shop-bottom">
@@ -111,16 +110,25 @@
   .shop-middle-right{
 
     height: 100px;
-    line-height: 30px;
+    line-height: 30rpx;
 
   }
-  .shop-middle-right .score{
-    display: inline-block;
-    width: 40px;
-    color: green;
-    text-align: left;
-    margin-left: 10px;
-  }
+
+	.grade-row{
+		display: flex;
+		margin-top: 20rpx;
+		padding: 15rpx;
+	}
+	.grade-row .name{
+		width: 200rpx;
+	}
+	.grade-row .score{
+		flex: 1;
+		color: green;
+	}
+	.grade-row .better{
+		flex:1;
+	}
   .shop-middle-right .score-better {
     color: red;
   }
