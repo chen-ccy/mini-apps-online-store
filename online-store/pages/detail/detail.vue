@@ -4,8 +4,7 @@
 		<scroll-view 
 		scroll-y="true" 
 		class="content"
-		@scrolltolower="loadMore"
-		 @scroll="scroll" >
+		 >
 		 
 			<detail-swiper :swiperImage="swiperImage" id="good"></detail-swiper>
 			<DetailBaseInfo :goods="goods"></DetailBaseInfo>

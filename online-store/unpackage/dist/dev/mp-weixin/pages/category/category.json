@@ -1,5 +1,10 @@
 {
   "navigationBarTitleText": "分类",
   "enablePullDownRefresh": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "tab-menu": "/components/childCategory/TabMenu",
+    "tab-control": "/components/homeChildCpns/tabControl",
+    "tab-content-category": "/components/childCategory/TabContentCategory",
+    "tab-content-detail": "/components/childCategory/TabContentDetail"
+  }
 }

@@ -1,25 +1,23 @@
 <template>
   <div class="profit">
-   
     <user-info/>
-
     <div class="account">
       <div class="accout-item">
-        <div>0.00元</div>
+        <div><span>0.00</span>元</div>
         <div>我的余额</div>
       </div>
       <div class="accout-item">
-        <div>0.00元</div>
+        <div><span>0</span>个</div>
         <div>我的优惠</div>
       </div>
       <div class="accout-item">
-        <div>0.00元</div>
+        <div><span>0</span>分</div>
         <div>我的积分</div>
       </div>
     </div>
 
-    <list-view :list="orderList"/>
-    <list-view :list="serviceList"/>
+    <list-view :list="orderList" :imgList="orderImgList"/>
+    <list-view :list="serviceList" :imgList="serviceList"/>
   </div>
 </template>
 
@@ -44,29 +42,34 @@
         serviceList: [
           {icon: '#service', iconColor: '#ff8198', info: '我的购物车'},
           {icon: '#download', iconColor: '#ff8198', info: '下载购物APP'},
-        ]
+        ],
+        orderImgList:['img/profile/message.svg','img/profile/pointer.svg','img/profile/vip.svg'],
+        serviceImgList:['img/profile/cart.svg','img/profile/shopping.svg']
       }
     }
   }
 </script>
 
 <style scoped>
-.nav-bar{
-  background-color: var(--color-high-text);
-  color: white;
-}
-.account{
-  display: flex;
-  height: 70px;
-  border: 2px solid;
-
- }
-  .account .accout-item{
-    height: 100%;
-    flex: 1;
-    text-align: center;
-    border-right: 1px solid lightgrey;
-    line-height: 25px;
-
+  .profit{
+     background-color: #ff5777;
+   }
+ .account{
+   display: flex;
+   width: 100%;
   }
+ .account span{
+   font-size: 24px;
+   font-weight: 700;
+   color: #ff5f3e;
+ }
+   .account .accout-item{
+     flex: 1;
+     text-align: center;
+     border-right: 1px solid #eee;
+     line-height: 25px;
+     align-items: center;
+     padding: 18px;
+     background-color: #fff;
+   }
 </style>
