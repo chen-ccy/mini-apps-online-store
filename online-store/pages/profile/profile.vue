@@ -52,7 +52,7 @@
 
 <style scoped>
   .profit{
-     background-color: #ff5777;
+     background-color: #eee;
    }
  .account{
    display: flex;

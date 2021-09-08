@@ -12,8 +12,8 @@
         </slot>
       </view>
       <view class="user-phone">
-      <view>
-        <image mode="widthFix" class="image" src="../../static/images/profile/phone.png" alt="">
+					<view>
+						<image mode="widthFix" class="image" src="../../static/images/profile/phone.png" alt="">
          </view>
         <slot name="user-phone">
           <view>暂无绑定手机号</view>
@@ -33,7 +33,7 @@
 <style scoped>
   .userInfo{
       width: 100%;
-      height: 80px;
+      height: 100px;
       background-color: #ff8198;
       display: flex;
       color: white;
@@ -62,6 +62,7 @@
       margin-left: 5px;
     }
     .user-phone{
+			display: flex;
       margin-top: 5px;
       font-size: 13px;
     }

@@ -1,6 +1,5 @@
 <template>
-  <div id="wrapper">
-  <scroll id="tab-menu">
+  <scroll-view scroll-y id="tab-menu">
     <div class="menu-list">
       <div class="menu-list-item"
            :class="{active: index===currentIndex}"
@@ -10,17 +9,14 @@
         {{item.title}}
       </div>
     </div>
-  </scroll>
-  </div>
+  </scroll-view>
 </template>
 
 <script>
-  import Scroll from "@/components/common/scroll/Scroll";
 
 	export default {
 		name: "TabMenu",
     components: {
-		  Scroll
     },
     props: {
 		  categories: Array
@@ -40,12 +36,8 @@
 </script>
 
 <style scoped>
-  #wrapper{
-    height: 100vh;
-  }
   #tab-menu{
-    height: calc(100% - 93px);
-    overflow: scroll;
+    height: 100vh;
   }
 .menu-list-item{
   width: 80px;

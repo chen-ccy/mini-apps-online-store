@@ -1,7 +1,7 @@
 <template>
-	<view class="goods-list-item" @click="goodItemClick">
+	<view class="goods-list-item" @click="goodItemClick" v-if="Object.keys(goodItem).length!=0">
 		
-			<image :src="goodsItemImage" mode=""></image>
+			<image :src="goodsItemImage" mode="widthFix"></image>
 			    <view class="goods-info">
 						<p class="title">{{goodItem.title}}</p>
 						<text class="price">{{goodItem.price}}</text>
@@ -28,7 +28,7 @@
 		},
 		computed:{
 			goodsItemImage(){
-				return this.goodItem.image || this.goodItem.show.img
+				return this.goodItem.img || this.goodItem.image || this.goodItem.show.img
 			}
 		},
 		methods:{
@@ -45,7 +45,7 @@
 
   .goods-list-item{
     padding-bottom: 80rpx;
-
+	
     position: relative;
 
   }

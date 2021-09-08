@@ -4,7 +4,7 @@
       <tab-menu :categories="categories"
                 @selectItem="selectItem"></tab-menu>
 
-      <scroll id="tab-content" :data="[categoryData]" :probe-type=3>
+      <scroll-view scroll-y id="tab-content" :data="[categoryData]" >
         <div>
 
           <tab-content-category :subcategories="showSubcategory"></tab-content-category>
@@ -12,21 +12,21 @@
                        @tabClick="tabClick"></tab-control>
           <tab-content-detail :category-detail="showCategoryDetail"></tab-content-detail>
         </div>
-      </scroll>
+      </scroll-view>
     </div>
   </div>
 </template>
 
 <script>
 
-   import TabMenu from '../../components/childCategory/TabMenu.vue'
+  import TabMenu from '../../components/childCategory/TabMenu.vue'
   import TabControl from "../../components/homeChildCpns/tabControl.vue";
   import TabContentCategory from '../../components/childCategory/TabContentCategory.vue'
   import TabContentDetail from '../../components/childCategory/TabContentDetail.vue'
 
   import {getCategoryDetail,getSubcategory,getCategory} from "../../network/category.js";
-  // import {POP, SELL, NEW} from "@/common/const";
-  // import {tabControlMixin} from "@/common/mixin";
+   import {POP, SELL, NEW} from "../../common/const.js";
+   import {tabControlMixin} from "../../common/mixin.js";
 
   export default {
 		name: "Category",
@@ -42,7 +42,8 @@
 		    categories: [],
         categoryData: {
         },
-        currentIndex: -1
+        currentIndex: -1,
+				currentType: POP
       }
     },
     created() {
@@ -52,7 +53,7 @@
     computed: {
 		  showSubcategory() {
 		    if (this.currentIndex === -1) return {}
-        return this.categoryData[this.currentIndex].subcategories
+        return this.categoryData[this.currentIndex].subcategories.data
       },
       showCategoryDetail() {
 		    if (this.currentIndex === -1) return []
@@ -63,7 +64,7 @@
 		  _getCategory() {
 		    getCategory().then(res => {
 		      // 1.获取分类数据
-		      this.categories = res.data.category.list
+		      this.categories = res[1].data.data.category.list
           // 2.初始化每个类别的子数据
           for (let i = 0; i < this.categories.length; i++) {
             this.categoryData[i] = {
@@ -83,7 +84,7 @@
         this.currentIndex = index;
 		    const mailKey = this.categories[index].maitKey;
         getSubcategory(mailKey).then(res => {
-          this.categoryData[index].subcategories = res.data
+          this.categoryData[index].subcategories = res[1].data
           this.categoryData = {...this.categoryData}
           this._getCategoryDetail(POP)
           this._getCategoryDetail(SELL)
@@ -96,7 +97,7 @@
         // 2.发送请求,传入miniWallkey和type
 		    getCategoryDetail(miniWallkey, type).then(res => {
 		      // 3.将获取的数据保存下来
-		      this.categoryData[this.currentIndex].categoryDetail[type] = res
+		      this.categoryData[this.currentIndex].categoryDetail[type] = res[1].data
           this.categoryData = {...this.categoryData}
         })
       },
@@ -106,13 +107,27 @@
       selectItem(index) {
         this._getSubcategories(index)
       }
-    }
+			// tabClick(index) {
+			// 	switch (index) {
+			// 		case 0:
+			// 			this.currentType = POP
+			// 			break
+			// 		case 1:
+			// 			this.currentType = NEW
+			// 			break
+			// 		case 2:
+			// 			this.currentType = SELL
+			// 			break
+			// 	}
+			// 	console.log(this.currentType);
+			// }
+		}
 	}
 </script>
 
 <style scoped>
   #category {
-    height: calc(100vh - 45px) ;
+    height: 100vh;
     position: relative;
     overflow: hidden;
   }
@@ -127,14 +142,13 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 44px;
+    top: 0;
     bottom: 0px;
     display: flex;
   }
 
   #tab-content {
-    height: 100%;
+    height: 100vh;
     flex: 1;
-    overflow: scroll;
   }
 </style>
